@@ -14,14 +14,10 @@ jobs:
           ruby-version: ruby
       - name: Install ruby dependencies
         run: bundle install --jobs 4 --retry 3
-      - name: Run sync_github_advisories task
+      - name: Update Github Advisories branch
         env:
           GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git switch sync_github_advisories
           bundle exec rake sync_github_advisories
-      - name: Update branch
-        env:
-          GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
           git push origin sync_github_advisories
