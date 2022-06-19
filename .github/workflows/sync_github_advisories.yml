@@ -1,0 +1,47 @@
+name: Sync Github Advisories Pull Request
+
+on: [ push ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    name: Sync
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ruby
+
+      - name: Install ruby dependencies
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Run Github Advisories task
+        id: run_sync_task
+        env:
+          GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          git switch sync_github_advisories
+          bundle exec rake sync_github_advisories
+          git add gems
+          git diff --cached --exit-code --quiet gems
+
+      - name: output step context
+        run: echo $CONTEXT
+        env:
+          CONTEXT: ${{ toJSON(steps.run_sync_task) }}
+
+      - name: Update Github Advisories branch
+        if: steps.run_sync_task.outcome == 'failure'
+        env:
+          GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add gems
+          git commit -m "Sync Github Advisories"
+          git push origin sync_github_advisories
