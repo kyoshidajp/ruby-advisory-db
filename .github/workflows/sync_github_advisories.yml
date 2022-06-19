@@ -27,7 +27,7 @@ jobs:
 
           git switch sync_github_advisories
           bundle exec rake sync_github_advisories
-          git diff gems --exit-code --quiet
+          git diff --exit-code --quiet gems
 
       - name: output step context
         run: echo $CONTEXT
