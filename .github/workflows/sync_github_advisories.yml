@@ -29,6 +29,11 @@ jobs:
           bundle exec rake sync_github_advisories
           git diff gems --exit-code --quiet
 
+      - name: output step context
+        run: echo $CONTEXT
+        env:
+          CONTEXT: ${{ toJSON(steps.run_sync_task) }}
+
       - name: Update Github Advisories branch
         if: steps.run_sync_task.outcome == 'failure'
         env:
