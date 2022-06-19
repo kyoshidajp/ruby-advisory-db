@@ -1,0 +1,20 @@
+name: Sync Github Advisories Pull Request
+
+on: [ push ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    name: Sync
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ruby
+      - name: Install ruby dependencies
+        run: bundle install --jobs 4 --retry 3
+      - name: Run sync_github_advisories task
+        env:
+          GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bundle exec rake sync_github_advisories
