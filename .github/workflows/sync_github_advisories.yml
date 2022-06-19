@@ -21,5 +21,5 @@ jobs:
           git switch sync_github_advisories
           bundle exec rake sync_github_advisories
           git add gems
-          git cm -m "Sync Github Advisories"
+          git commit -m "Sync Github Advisories"
           git push origin sync_github_advisories
