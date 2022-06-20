@@ -36,4 +36,4 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Sync Github Advisories"
-          git push origin sync_github_advisories
+          git push origin master
