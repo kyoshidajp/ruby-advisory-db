@@ -1,0 +1,95 @@
+---
+gem: commonmarker
+ghsa: 4qw4-jpp4-8gvp
+url: https://github.com/gjtorikian/commonmarker/security/advisories/GHSA-4qw4-jpp4-8gvp
+title: Unbounded resource exhaustion in cmark-gfm autolink extension may lead to denial
+  of service
+date: 2022-09-21
+description: |
+  ### Impact
+
+  CommonMarker uses `cmark-gfm` for rendering [Github Flavored Markdown](https://github.github.com/gfm/). A polynomial time complexity issue in cmark-gfm's autolink extension may lead to unbounded resource exhaustion and subsequent denial of service.
+
+  ### Patches
+
+  This vulnerability has been patched in the following CommonMarker release:
+
+  - v0.23.6
+
+  ### Workarounds
+
+  Disable use of the autolink extension.
+
+  ### References
+
+  https://github.com/gjtorikian/commonmarker/pull/190
+  https://github.com/github/cmark-gfm/security/advisories/GHSA-cgh3-p57x-9q7q
+  https://en.wikipedia.org/wiki/Time_complexity
+
+  ### For more information
+  If you have any questions or comments about this advisory:
+  * Open an issue in [github/cmark-gfm](https://github.com/github/cmark-gfm)
+
+  ### Acknowledgements
+
+  We would like to thank [Legit Security](https://www.legitsecurity.com) for reporting this vulnerability.
+unaffected_versions:
+- "<OPTIONAL: FILL IN SEE BELOW>"
+patched_versions:
+- "<FILL IN SEE BELOW>"
+
+
+# GitHub advisory data below - **Remove this data before committing**
+# Use this data to write patched_versions (and potentially unaffected_versions) above
+---
+identifiers:
+- type: GHSA
+  value: GHSA-4qw4-jpp4-8gvp
+summary: Unbounded resource exhaustion in cmark-gfm autolink extension may lead to
+  denial of service
+description: |
+  ### Impact
+
+  CommonMarker uses `cmark-gfm` for rendering [Github Flavored Markdown](https://github.github.com/gfm/). A polynomial time complexity issue in cmark-gfm's autolink extension may lead to unbounded resource exhaustion and subsequent denial of service.
+
+  ### Patches
+
+  This vulnerability has been patched in the following CommonMarker release:
+
+  - v0.23.6
+
+  ### Workarounds
+
+  Disable use of the autolink extension.
+
+  ### References
+
+  https://github.com/gjtorikian/commonmarker/pull/190
+  https://github.com/github/cmark-gfm/security/advisories/GHSA-cgh3-p57x-9q7q
+  https://en.wikipedia.org/wiki/Time_complexity
+
+  ### For more information
+  If you have any questions or comments about this advisory:
+  * Open an issue in [github/cmark-gfm](https://github.com/github/cmark-gfm)
+
+  ### Acknowledgements
+
+  We would like to thank [Legit Security](https://www.legitsecurity.com) for reporting this vulnerability.
+severity: MODERATE
+cvss:
+  score: 0.0
+  vectorString: 
+references:
+- url: https://github.com/gjtorikian/commonmarker/security/advisories/GHSA-4qw4-jpp4-8gvp
+- url: https://github.com/gjtorikian/commonmarker/pull/190
+- url: https://github.com/gjtorikian/commonmarker/releases/tag/v0.23.6
+- url: https://github.com/advisories/GHSA-4qw4-jpp4-8gvp
+publishedAt: '2022-09-21T18:18:05Z'
+withdrawnAt: 
+vulnerabilities:
+- package:
+    name: commonmarker
+    ecosystem: RUBYGEMS
+  vulnerableVersionRange: "< 0.23.6"
+  firstPatchedVersion:
+    identifier: 0.23.6
