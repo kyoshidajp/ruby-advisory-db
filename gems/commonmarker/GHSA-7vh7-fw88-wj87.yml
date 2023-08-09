@@ -1,0 +1,66 @@
+---
+gem: commonmarker
+ghsa: 7vh7-fw88-wj87
+url: https://github.com/gjtorikian/commonmarker/security/advisories/GHSA-7vh7-fw88-wj87
+title: Several quadratic complexity bugs may lead to denial of service in Commonmarker
+date: 2023-08-08
+description: |-
+  ## Impact
+
+  Several quadratic complexity bugs in commonmarker's underlying [`cmark-gfm`](https://github.com/github/cmark-gfm) library may lead to unbounded resource exhaustion and subsequent denial of service.
+
+  The following vulnerabilities were addressed:
+
+  * [CVE-2023-37463](https://github.com/github/cmark-gfm/security/advisories/GHSA-w4qg-3vf7-m9x5)
+
+  For more information, consult the release notes for version [`0.29.0.gfm.12`](https://github.com/github/cmark-gfm/releases/tag/0.29.0.gfm.12).
+
+  ## Mitigation
+
+  Users are advised to upgrade to commonmarker version [`0.23.10`](https://rubygems.org/gems/commonmarker/versions/0.23.10).
+unaffected_versions:
+- "<OPTIONAL: FILL IN SEE BELOW>"
+patched_versions:
+- "<FILL IN SEE BELOW>"
+
+
+# GitHub advisory data below - **Remove this data before committing**
+# Use this data to write patched_versions (and potentially unaffected_versions) above
+---
+identifiers:
+- type: GHSA
+  value: GHSA-7vh7-fw88-wj87
+summary: Several quadratic complexity bugs may lead to denial of service in Commonmarker
+description: |-
+  ## Impact
+
+  Several quadratic complexity bugs in commonmarker's underlying [`cmark-gfm`](https://github.com/github/cmark-gfm) library may lead to unbounded resource exhaustion and subsequent denial of service.
+
+  The following vulnerabilities were addressed:
+
+  * [CVE-2023-37463](https://github.com/github/cmark-gfm/security/advisories/GHSA-w4qg-3vf7-m9x5)
+
+  For more information, consult the release notes for version [`0.29.0.gfm.12`](https://github.com/github/cmark-gfm/releases/tag/0.29.0.gfm.12).
+
+  ## Mitigation
+
+  Users are advised to upgrade to commonmarker version [`0.23.10`](https://rubygems.org/gems/commonmarker/versions/0.23.10).
+severity: MODERATE
+cvss:
+  score: 0.0
+  vectorString: 
+references:
+- url: https://github.com/gjtorikian/commonmarker/security/advisories/GHSA-7vh7-fw88-wj87
+- url: https://github.com/gjtorikian/commonmarker/commit/db8cd377b54541f7fd484d168b7682a282a680f7
+- url: https://github.com/github/cmark-gfm/releases/tag/0.29.0.gfm.12
+- url: https://rubygems.org/gems/commonmarker/versions/0.23.10
+- url: https://github.com/advisories/GHSA-7vh7-fw88-wj87
+publishedAt: '2023-08-08T17:12:00Z'
+withdrawnAt: 
+vulnerabilities:
+- package:
+    name: commonmarker
+    ecosystem: RUBYGEMS
+  vulnerableVersionRange: "< 0.23.10"
+  firstPatchedVersion:
+    identifier: 0.23.10
